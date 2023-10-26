@@ -395,8 +395,9 @@ export default class GridArrow extends Component {
           }}
         >
           {this.props.value ? (
-            `\\(${this.props.value}\\)`
+            `${this.props.value}`
           ) : (
+            // `\\(${this.props.value}\\)`
             <span class="hide">_</span>
           )}
         </div>

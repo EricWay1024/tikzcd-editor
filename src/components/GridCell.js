@@ -106,7 +106,8 @@ export default class GridCell extends Component {
       >
         <div class="value" ref={el => (this.valueElement = el)}>
           {this.props.value ? (
-            `\\(${this.props.value}\\)`
+            // `\\(${this.props.value}\\)`
+            `${this.props.value}`
           ) : (
             <span class="hide">_</span>
           )}
