@@ -4,10 +4,12 @@
 [`typst commute`](https://gitlab.com/giacomogallina/commute) code instead of
 LaTeX!!!**
 
-Try it [here](https://tikzcd-typst-editor.pages.dev/) or on [https://t.yw.je](https://t.yw.je).
+Try it [here](https://tikzcd-typst-editor.pages.dev/) or on
+[https://t.yw.je](https://t.yw.je).
 
-This project is still quite limited as it now only supports the following
-arrow types:
+This project is still quite limited as it now only supports the following arrow
+types:
+
 - vanilla (i.e. with nothing on it),
 - injection,
 - surjection,
@@ -15,11 +17,14 @@ arrow types:
 - dashed,
 - curved.
 
-But hey, you don't need much more than these to learn abstract nonsense, right...?
+But hey, you don't need much more than these to learn abstract nonsense,
+right...?
 
-LaTeX rendering for labels have been disabled because they usually don't make any sense here for your beautiful, curly-bracket-free Typst code.
+LaTeX rendering for labels have been disabled because they usually don't make
+any sense here for your beautiful, curly-bracket-free Typst code.
 
-(Since I'm too busy learning homological algebra I haven't made a Typst parser for it so obviously the parse button wouldn't work.)
+(Since I'm too busy learning homological algebra I haven't made a Typst parser
+for it so obviously the parse button wouldn't work.)
 
 The following comes from the original repo.
 
