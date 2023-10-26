@@ -2,6 +2,13 @@
 
 Try it [here](https://tikzcd-typst-editor.pages.dev/).
 
+This is intended as a makeshift project, because currently `typst commute` doesn't support many types of arrows in the first place. (For example, there is no double arrow.) 
+
+Certainly if you type LaTeX labels (other than single letters) they won't work in Typst, so I suggest you do the label editing in Typst and just draw the diagram here.
+
+The following comes from the original repo. 
+---
+
 # tikzcd-editor [![CI](https://github.com/yishn/tikzcd-editor/workflows/CI/badge.svg)](https://github.com/yishn/tikzcd-editor/actions)
 
 A simple visual editor for creating commutative diagrams.
