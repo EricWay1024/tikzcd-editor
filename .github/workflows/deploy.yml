@@ -9,28 +9,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 12
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - name: npm install and build artifact
-      run: |
-        npm ci
-        npm run dist
-      env:
-        CI: true
-    - name: Extract info
-      id: info
-      run: |
-        node ./ci/extractInfo.js
-    - name: Deploy application
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0
-      env:
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        METHOD: sftp
-        LOCAL_DIR: dist/tikzcd-editor-v${{ steps.info.outputs.version }}
-        REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
-        ARGS: --delete
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: npm install and build artifact
+        run: |
+          npm ci
+          npm run dist
+        env:
+          CI: true
+      - name: Extract info
+        id: info
+        run: |
+          node ./ci/extractInfo.js
+      - name: Deploy application
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          METHOD: sftp
+          LOCAL_DIR: dist/tikzcd-editor-v${{ steps.info.outputs.version }}
+          REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+          ARGS: --delete
