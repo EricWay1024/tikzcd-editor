@@ -1,12 +1,28 @@
-**This fork makes it generate [`typst commute`](https://gitlab.com/giacomogallina/commute) code instead of LaTeX!!**
+# Drawing commutative diagrams for [Typst](https://typst.app)
 
-Try it [here](https://tikzcd-typst-editor.pages.dev/).
+**This fork makes it generate
+[`typst commute`](https://gitlab.com/giacomogallina/commute) code instead of
+LaTeX!!!**
 
-This is intended as a makeshift project, because currently `typst commute` doesn't support many types of arrows in the first place. (For example, there is no double arrow.) 
+Try it [here](https://tikzcd-typst-editor.pages.dev/) or on [https://t.yw.je](https://t.yw.je).
 
-Certainly if you type LaTeX labels (other than single letters) they won't work in Typst, so I suggest you do the label editing in Typst and just draw the diagram here.
+This project is still quite limited as it now only supports the following
+arrow types:
+- vanilla (i.e. with nothing on it),
+- injection,
+- surjection,
+- definition,
+- dashed,
+- curved.
 
-The following comes from the original repo. 
+But hey, you don't need much more than these to learn abstract nonsense, right...?
+
+LaTeX rendering for labels have been disabled because they usually don't make any sense here for your beautiful, curly-bracket-free Typst code.
+
+(Since I'm too busy learning homological algebra I haven't made a Typst parser for it so obviously the parse button wouldn't work.)
+
+The following comes from the original repo.
+
 ---
 
 # tikzcd-editor [![CI](https://github.com/yishn/tikzcd-editor/workflows/CI/badge.svg)](https://github.com/yishn/tikzcd-editor/actions)
