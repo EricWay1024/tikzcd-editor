@@ -1,3 +1,5 @@
+**This fork makes it generate [`typst commute`](https://gitlab.com/giacomogallina/commute) code instead of LaTeX!!**
+
 # tikzcd-editor [![CI](https://github.com/yishn/tikzcd-editor/workflows/CI/badge.svg)](https://github.com/yishn/tikzcd-editor/actions)
 
 A simple visual editor for creating commutative diagrams.
