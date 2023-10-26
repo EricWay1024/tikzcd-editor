@@ -331,7 +331,7 @@ export default class App extends Component {
           el.click()
           el.remove()
         }}
-        href="https://github.com/yishn/tikzcd-editor"
+        href="https://github.com/EricWay1024/tikzcd-editor"
         target="_blank"
       />,
       document.createElement('div')
