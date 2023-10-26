@@ -7,6 +7,39 @@ import {
 import {getId, arrSubtract, b64DecodeUnicode, b64EncodeUnicode} from './helper'
 import {parse} from './parser'
 
+export function toTypst(diagram) {
+  const obj = JSON.parse(toJSON(diagram))
+  let res = '#align(center, commutative-diagram(\n'
+  const toTuple = position => `(${position[1]}, ${position[0]})`
+  const valueToStr = value => (value ? `[\$${value}\$]` : `[]`)
+  obj.nodes.forEach(({position, value}) => {
+    res += `  node(${toTuple(position)}, ${valueToStr(value)}),\n`
+  })
+  obj.edges.forEach(({from, to, value, head, tail, line, bend}) => {
+    const startTuple = toTuple(obj.nodes[from].position)
+    const endTuple = toTuple(obj.nodes[to].position)
+    res += `  arr(${startTuple}, ${endTuple}, ${valueToStr(value)}`
+    if (bend) {
+      res += `, curve: ${bend}deg`
+    }
+    if (tail === 'hook') {
+      res += `, "inj"`
+    }
+    if (tail === 'mapsto') {
+      res += `, "def"`
+    }
+    if (line === 'dashed') {
+      res += `, "dashed"`
+    }
+    if (head === 'twoheads') {
+      res += `, "surj"`
+    }
+    res += '),\n'
+  })
+  res += '))'
+  return res
+}
+
 export function toJSON(diagram) {
   let leftTop = [0, 1].map(i =>
     diagram.nodes.reduce(

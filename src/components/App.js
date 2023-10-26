@@ -195,7 +195,9 @@ export default class App extends Component {
   }
 
   openCodeBox = () => {
-    let code = `% ${this.generateLink()}\n${diagram.toTeX(this.state.diagram)}`
+    let code = `// ${this.generateLink()}\n${diagram.toTypst(
+      this.state.diagram
+    )}`
 
     this.setState({
       codeValue: code,
