@@ -2,31 +2,31 @@
 
 **This fork makes it generate
 [`typst commute`](https://gitlab.com/giacomogallina/commute) code instead of
-LaTeX!!!**
+LaTeX!**
 
-Try it [here](https://tikzcd-typst-editor.pages.dev/) or on
-[https://t.yw.je](https://t.yw.je).
+Try it on [t.yw.je](https://t.yw.je) (or
+[backup link](https://tikzcd-typst-editor.pages.dev/)).
 
-You can make objects and morphims and label them as usual. But notice this
-project is still somewhat limited as it now only supports the following arrow
-types:
+Supported features:
 
-- injection,
-- surjection,
-- definition,
-- double arrow,
-- dotted,
-- dashed,
-- curved.
+- Drawing objects and arrows and labeling them;
+- Arrow types including:
+  - injection (hook tail),
+  - surjection (double arrow head),
+  - definition ("maps to"),
+  - double arrow (for natural transformations),
+  - dotted,
+  - dashed,
+  - bended;
+- Specifying arrow label position (left, right, or on the arrow).
 
-But hey, you don't need much more than these to learn abstract nonsense,
-right...?
+Not yet supported features:
 
-LaTeX rendering for labels have been disabled because they usually don't make
-any sense here for your beautiful, curly-bracket-free Typst code.
-
-(Since I'm too busy learning homological algebra I haven't made a Typst parser
-for it so obviously the parse button wouldn't work.)
+- Harpoon arrow head;
+- Shifting an arrow left and right;
+- Self loops;
+- Parsing Typst code;
+- Label rendering.
 
 The following comes from the original repo.
 
