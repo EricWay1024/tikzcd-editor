@@ -8,6 +8,7 @@ import {getId, arrSubtract, b64DecodeUnicode, b64EncodeUnicode} from './helper'
 import {parse} from './parser'
 
 export function toTypst(diagram) {
+  console.log(toJSON(diagram))
   const obj = JSON.parse(toJSON(diagram))
   let res = '#align(center, commutative-diagram(\n'
   const toTuple = position => `(${position[1]}, ${position[0]})`
@@ -15,27 +16,41 @@ export function toTypst(diagram) {
   obj.nodes.forEach(({position, value}) => {
     res += `  node(${toTuple(position)}, ${valueToStr(value)}),\n`
   })
-  obj.edges.forEach(({from, to, value, head, tail, line, bend}) => {
-    const startTuple = toTuple(obj.nodes[from].position)
-    const endTuple = toTuple(obj.nodes[to].position)
-    res += `  arr(${startTuple}, ${endTuple}, ${valueToStr(value)}`
-    if (bend) {
-      res += `, curve: ${bend}deg`
+  obj.edges.forEach(
+    ({from, to, value, head, tail, line, bend, labelPosition}) => {
+      const startTuple = toTuple(obj.nodes[from].position)
+      const endTuple = toTuple(obj.nodes[to].position)
+      res += `  arr(${startTuple}, ${endTuple}, ${valueToStr(value)}`
+      if (bend) {
+        res += `, curve: ${bend}deg`
+      }
+      if (labelPosition === 'inside') {
+        res += `, label-pos: 0`
+      }
+      if (labelPosition === 'left' || labelPosition === 'right') {
+        res += `, label-pos: ${labelPosition}`
+      }
+      if (tail === 'hook') {
+        res += `, "inj"`
+      }
+      if (tail === 'mapsto') {
+        res += `, "def"`
+      }
+      if (line === 'dashed') {
+        res += `, "dashed"`
+      }
+      if (line === 'dotted') {
+        res += `, "dotted"`
+      }
+      if (line === 'double') {
+        res += `, "nat"`
+      }
+      if (head === 'twoheads') {
+        res += `, "surj"`
+      }
+      res += '),\n'
     }
-    if (tail === 'hook') {
-      res += `, "inj"`
-    }
-    if (tail === 'mapsto') {
-      res += `, "def"`
-    }
-    if (line === 'dashed') {
-      res += `, "dashed"`
-    }
-    if (head === 'twoheads') {
-      res += `, "surj"`
-    }
-    res += '),\n'
-  })
+  )
   res += '))'
   return res
 }
