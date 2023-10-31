@@ -258,13 +258,13 @@ export default class Properties extends Component {
 
           <Separator />
 
-          <Button
+          {/* <Button
             checked={data.tail === 'tail'}
             disabled={['none', 'double'].includes(data.line)}
             icon="./img/properties/tail.svg"
             name="Tail"
             onClick={this.handleButtonClick('tail')}
-          />
+          /> */}
 
           <Button
             checked={data.tail === 'mapsto'}
@@ -318,7 +318,7 @@ export default class Properties extends Component {
 
           {data.loop == null ? (
             <>
-              <Button
+              {/* <Button
                 key="shiftright"
                 icon="./img/properties/shiftright.svg"
                 name="Shift Right (Down Arrow)"
@@ -330,7 +330,7 @@ export default class Properties extends Component {
                 icon="./img/properties/shiftleft.svg"
                 name="Shift Left (Up Arrow)"
                 onClick={this.handleButtonClick('shiftleft')}
-              />
+              /> */}
 
               <Button
                 key="bendright"
@@ -359,7 +359,7 @@ export default class Properties extends Component {
 
           <Separator />
 
-          <Button
+          {/* <Button
             checked={['harpoon', 'harpoonalt'].includes(data.head)}
             disabled={['none', 'double'].includes(data.line)}
             icon={`./img/properties/${
@@ -367,7 +367,7 @@ export default class Properties extends Component {
             }.svg`}
             name="Harpoon"
             onClick={this.handleButtonClick('harpoon')}
-          />
+          /> */}
 
           <Button
             checked={data.head == null}
