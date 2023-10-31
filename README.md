@@ -8,12 +8,14 @@ Try it [here](https://tikzcd-typst-editor.pages.dev/) or on
 [https://t.yw.je](https://t.yw.je).
 
 You can make objects and morphims and label them as usual. But notice this
-project is still quite limited as it now only supports the following arrow
+project is still somewhat limited as it now only supports the following arrow
 types:
 
 - injection,
 - surjection,
 - definition,
+- double arrow,
+- dotted,
 - dashed,
 - curved.
 
